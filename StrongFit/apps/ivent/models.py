@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
+# user
 class IventUserProfile(models.Model):
     user = models.ForeignKey(User, verbose_name='Участник', on_delete=models.CASCADE)
     name = models.CharField("Прогресс пользователей", max_length=150, )
