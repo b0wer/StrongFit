@@ -1,0 +1,39 @@
+{% extends 'base.html' %}       
+{% load static %}       
+        
+        
+        
+{% block title %}       
+Ivent       
+{% endblock %}      
+        
+{% block content %}     
+    		        
+                    
+                  
+                <!-- Features -->       
+				<div id="features-wrapper">     
+					<div class="container">     
+						<div class="row">
+                        {% for post in posts %}        
+							<div class="col-4 col-12-medium">       
+        
+								    <!-- Box -->        
+									<section class="box feature">       
+										<a href="{{post.id}}"class="image featured"><img src="{% if post.image_pub %}{{post.image_pub.url}}{% endif %}"></a>        
+										<div class="inner">     
+											<header>        
+												<h2><a href= "{{post.id}}">{{ post.title }}</a></h2>      
+												{{ post.text|slice:":150" }}...
+                        
+											</header>       
+        
+	     
+                                        </div>      
+									</section> 
+                            </div>  
+                        {% endfor %} 
+						</div>      
+					</div>      
+                </div>          
+{% endblock %} 

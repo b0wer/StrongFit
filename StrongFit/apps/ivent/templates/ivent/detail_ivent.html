@@ -1,0 +1,31 @@
+{% extends 'base.html' %}       
+{% load static %}       
+        
+        
+        
+{% block title %}       
+Ivent       
+{% endblock %}      
+        
+{% block content %}     
+    		        
+                    
+                  
+                <!-- Features -->       
+				<div id="features-wrapper">     
+					<div class="container"> 
+                    <div class="shirina">   
+
+
+                            {{ivent.name}} <br>
+                            {% for UserProfil in IventUserProfils %}
+                                {{UserProfil.name}} <br>
+                                {% for image in UserProfil.all_images %}
+                                    <img src="{{ image.image.url }}" class="image featured"> 
+
+                                {% endfor %}
+                            {% endfor %}
+                    </div>
+                    </div>
+                </div>          
+{% endblock %} 

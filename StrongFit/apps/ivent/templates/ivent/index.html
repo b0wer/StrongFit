@@ -1,0 +1,47 @@
+{% extends 'base.html' %}       
+{% load static %}       
+        
+        
+        
+{% block title %}       
+Ivent       
+{% endblock %}      
+        
+{% block content %}     
+    		        
+                    
+                  
+                <!-- Features -->       
+				<div id="features-wrapper">     
+					<div class="container">     
+						<div class="row">
+                        {% for ivent in ivents %}        
+							<div class="col-4 col-12-medium">       
+        
+								    <!-- Box -->        
+									<section class="box feature">       
+										<a href="{{ivent.id}}"class="image featured"><img src="{{ ivent.image_logo.url }}" alt="{{ivent}}" /></a>        
+										<div class="inner">     
+											<header>        
+												<h2><a href= "{{ivent.id}}">{{ivent}}</a></h2>      
+												<p>
+	
+                                                        {% if ivent.get_users|length > 2 %}
+                                                            {{ivent.get_users|slice:":2"|join:", "}} и еще {{ivent.get_users|length|add:-2 }}   
+                                                        {% else %}
+                                                            {{ivent.get_users|join:", "}}
+                                                        {% endif %}
+                                                         
+                                                    
+                                                </p>        
+											</header>       
+        
+	     
+                                        </div>      
+									</section> 
+                            </div>  
+                        {% endfor %} 
+						</div>      
+					</div>      
+                </div>          
+{% endblock %} 
